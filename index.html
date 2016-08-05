@@ -7,23 +7,28 @@
 </head>
 <body>
 <div id="app">
-  <ul id="example-2">
-    <li v-for="item in items">
-      {{ parentMessage }} - {{ $index }} - {{ item.message }}
-    </li>
-  </ul>
+  <div v-if="Math.random() > 0.5">
+    随机数大于 0.5
+  </div>
+  <div v-else>
+    随机数不大于 0.5
+  </div>
 </div>
 <script>
-  var example2 = new Vue({
-    el: '#example-2',
-    data: {
-      parentMessage: '菜鸟教程官网',
-      items: [
-        { message: 'www.runoob.com' },
-        { message: 'www.w3cschool.cc' }
-      ]
-    }
+  new Vue({
+    el: '#app'
   })
 </script>
 </body>
 </html>
+
+<!--
+<h1 v-if="ok">Yes</h1>
+<h1 v-else>No</h1>
+
+<template v-if="ok">
+  <h1>Title</h1>
+  <p>Paragraph 1</p>
+  <p>Paragraph 2</p>
+</template>
+-->
