@@ -6,17 +6,24 @@
   <script src="http://static.runoob.com/assets/vue/1.0.11/vue.min.js"></script>
 </head>
 <body>
-<p><b>修改输入框的值，查看效果</b>：</p>
 <div id="app">
-  <p>{{* message}}</p>
-  <p>{{ message }}</p>
-  <!-- 字符串连接 -->
-  <p>{{ message + '官网地址：www.runoob.com' }}</p>
-  <!-- 字符串反转 -->
-  <p>{{ message.split('').reverse().join('') }}</p>
-  <input v-model="message">
+  <ul>
+    <li v-for="todo in todos">
+      {{ todo.text }}
+    </li>
+  </ul>
 </div>
-<!-- JavaScript 代码需要放在尾部（指定的HTML元素之后） -->
-<script src="http://static.runoob.com/code/js/vueapp.js"></script>
+<script>
+  new Vue({
+    el: '#app',
+    data: {
+      todos: [
+        { text: '菜鸟教程' },
+        { text: 'www.runoob.com' },
+        { text: 'www.w3cschool.cc' }
+      ]
+    }
+  })
+</script>
 </body>
 </html>
