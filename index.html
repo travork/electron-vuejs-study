@@ -7,28 +7,20 @@
 </head>
 <body>
 <div id="app">
-  <div v-if="Math.random() > 0.5">
-    随机数大于 0.5
-  </div>
-  <div v-else>
-    随机数不大于 0.5
-  </div>
+  <p>{{message}}</p>
+  <p>{{message | uppercase}}</p>
+  <p>{{message | reverse | uppercase}}</p>
 </div>
 <script>
+  Vue.filter('reverse', function (value) {
+    return value.split('').reverse().join('')
+  })
   new Vue({
-    el: '#app'
+    el: '#app',
+    data: {
+      message:'www.runoob.com'
+    }
   })
 </script>
 </body>
 </html>
-
-<!--
-<h1 v-if="ok">Yes</h1>
-<h1 v-else>No</h1>
-
-<template v-if="ok">
-  <h1>Title</h1>
-  <p>Paragraph 1</p>
-  <p>Paragraph 2</p>
-</template>
--->
